@@ -28,7 +28,9 @@ class Text_Showcase:
     def INPUT_TYPES(cls):
         return {
             "required": {
-                "TXT": ("STRING", ),
+                "TXT": ("STRING", {
+                    "default": "Distorted, discontinuous, Ugly, blurry, low resolution, motionless, static, disfigured, disconnected limbs, Ugly faces, incomplete arms",
+                    "multiline": True}),
             }
         }
 
