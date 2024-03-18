@@ -44,9 +44,9 @@ class DisplayText:
         return {"ui": {"string": [text, ]}, "result": (text,)}
 
 NODE_CLASS_MAPPINGS = {
-    "Text_Showcase": Text_Showcase,
+    "DisplayText": DisplayText,
 }
 
 NODE_DISPLAY_NAME_MAPPINGS = {
-    "Text_Showcase": "📽Text_Showcase",
+    "DisplayText": "📽DisplayText",
 }
