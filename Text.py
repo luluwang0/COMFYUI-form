@@ -20,26 +20,28 @@ import folder_paths
 
 current_directory = os.path.dirname(os.path.abspath(__file__))
 
-class Text_Showcase:
+class DisplayText:
     def __init__(self):
         pass
 
     @classmethod
-    def INPUT_TYPES(cls):
+    def INPUT_TYPES(s):
         return {
             "required": {
-                "TXT": ("STRING", {
-                    "default": "Distorted, discontinuous, Ugly, blurry, low resolution, motionless, static, disfigured, disconnected limbs, Ugly faces, incomplete arms",
-                    "multiline": True}),
-            }
+                "text": ("STRING", {"forceInput": True}),
+            },
+            "hidden": {"prompt": "PROMPT", "extra_pnginfo": "EXTRA_PNGINFO"},
         }
 
-    RETURN_TYPES = ("MODEL",)
-    RETURN_NAMES = ("pipe",)
-    FUNCTION = "show txt"
-    CATEGORY = "Deer"
+    RETURN_TYPES = ("STRING",)
+    RETURN_NAMES = ("text",)
+    OUTPUT_NODE = True
+    FUNCTION = "display_text"
 
+    CATEGORY = "Deer模块组✨"
 
+    def display_text(self, text, prompt=None, extra_pnginfo=None):
+        return {"ui": {"string": [text, ]}, "result": (text,)}
 
 NODE_CLASS_MAPPINGS = {
     "Text_Showcase": Text_Showcase,
